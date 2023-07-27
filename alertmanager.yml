@@ -1,0 +1,17 @@
+global:
+  # The smtp_email_configs section contains email configuration for sending alerts via email.
+  smtp_email_config:
+    smtp_from: your-alertmanager@yourdomain.com
+    smtp_smarthost: smtp.yourdomain.com:587
+    smtp_auth_username: your-smtp-username
+    smtp_auth_password: your-smtp-password
+
+route:
+  # Send all alerts to the 'email' receiver by default
+  receiver: email
+
+receivers:
+- name: email
+  email_configs:
+  - to: your-email@yourdomain.com
+    send_resolved: true
